@@ -1,8 +1,8 @@
 import Express from 'express';
 import compression from 'compression';
-import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import path from 'path';
+import "./db";
 
 // Webpack Requirements
 import webpack from 'webpack';
@@ -28,18 +28,6 @@ import api from './routes/api';
 
 
 console.log("My key = " + JSON.stringify(process.env.GAPI_KEY));
-// Set native promises as mongoose promise
-mongoose.Promise = global.Promise;
-
-// MongoDB Connection
-// mongoose.connect(serverConfig.mongoURL, (error) => {
-//   if (error) {
-//     console.error('Please make sure Mongodb is installed and running!'); // eslint-disable-line no-console
-//     throw error;
-//   } else {
-//     console.log("MongoDB is online");
-//   }
-// });
 
 // Apply body Parser and server public assets and routes
 app.use(compression());
